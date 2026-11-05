@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const quickLinks = [
@@ -16,6 +17,12 @@ const quickLinks = [
 ];
 
 export default function PublicFooter() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#0D172A] text-white">
       {/* Background glow */}
@@ -95,14 +102,13 @@ export default function PublicFooter() {
 
         {/* Divider */}
         <div className="mt-9 border-t border-white/10" />
-
         {/* Copyright */}
-        <div className="pt-6 text-center">
-          <p className="text-sm text-slate-400">
-            © {new Date().getFullYear()} Tolesa Mosisa.
-            {" "}All rights reserved.
-          </p>
-        </div>
+<div className="pt-6 text-center">
+  <p className="text-sm text-slate-400">
+    © {year ?? "2026"} Tolesa Mosisa.{" "}
+    All rights reserved.
+  </p>
+</div>
       </div>
     </footer>
   );

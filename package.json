@@ -2,12 +2,13 @@
   "name": "dppms",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
+ "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint",
+  "postinstall": "prisma generate --config prisma7.config.ts"
+},
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@better-auth/prisma-adapter": "^1.7.12",
